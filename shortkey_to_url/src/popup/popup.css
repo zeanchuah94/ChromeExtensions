@@ -1,0 +1,186 @@
+:root {
+  --color-primary: #4f6ef7;
+  --color-primary-dark: #3a57e8;
+  --color-primary-light: #eef0fe;
+  --color-text: #1a202c;
+  --color-text-muted: #718096;
+  --color-border: #e2e8f0;
+  --color-bg: #f7f9fc;
+  --color-unset: #f0f2f5;
+  --radius-sm: 6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+  color: var(--color-text);
+  background: #fff;
+  width: 300px;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ヘッダー */
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 11px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.popup-icon { font-size: 18px; }
+.popup-title { font-size: 14px; font-weight: 700; }
+
+/* ショートカット一覧 */
+#shortcuts-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.shortcut-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  transition: background 0.1s;
+}
+
+.shortcut-item:hover {
+  background: var(--color-bg);
+}
+
+.shortcut-item.is-unset {
+  opacity: 0.5;
+}
+
+.shortcut-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.shortcut-item.is-unset .shortcut-num {
+  background: #cbd5e0;
+}
+
+.shortcut-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.shortcut-name {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shortcut-key-hint {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  margin-top: 1px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+.shortcut-url-text {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+}
+
+.shortcut-unset-label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 1px;
+}
+
+/* 遷移ボタン */
+.btn-go {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-go:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-go:active {
+  transform: scale(0.92);
+}
+
+.btn-go:disabled {
+  background: var(--color-unset);
+  color: #cbd5e0;
+  cursor: not-allowed;
+}
+
+/* 全未設定 */
+.all-empty-msg {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  padding: 20px 14px;
+}
+
+.all-empty-msg[hidden] { display: none; }
+
+/* フッター */
+.footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.btn--options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  gap: 6px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn--options:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-color: #c3d4f5;
+}

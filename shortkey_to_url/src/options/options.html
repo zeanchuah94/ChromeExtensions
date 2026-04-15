@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ショートカットナビ — オプション</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">⚡</div>
+      <div>
+        <h1 class="header-title">ショートカットナビ</h1>
+        <p class="header-subtitle">ショートカットとURLの管理</p>
+      </div>
+    </header>
+
+    <!-- ショートカット設定セクション -->
+    <section class="card">
+      <div class="section-header">
+        <h2 class="section-title">⌨️ ショートカット設定</h2>
+        <button id="btn-open-shortcuts" class="btn btn--link">キー割り当てを変更 →</button>
+      </div>
+      <p class="section-desc">
+        各ショートカットに「名称」と「遷移先URL」を設定します。<br />
+        キーの変更は <kbd>chrome://extensions/shortcuts</kbd> で行えます。
+      </p>
+      <div id="shortcuts-list" class="shortcuts-list">
+        <!-- JS で描画 -->
+      </div>
+    </section>
+
+    <!-- URL プリセット管理 -->
+    <section class="card">
+      <h2 class="section-title">🔗 URL プリセット一覧</h2>
+
+      <!-- 追加フォーム -->
+      <form id="add-form" class="form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="input-label">表示名</label>
+            <input
+              id="input-label"
+              class="form-input"
+              type="text"
+              placeholder="例: GitHub"
+              maxlength="60"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group form-group--url">
+            <label class="form-label" for="input-url">URL</label>
+            <input
+              id="input-url"
+              class="form-input"
+              type="text"
+              placeholder="例: https://github.com"
+              autocomplete="off"
+            />
+          </div>
+          <div class="form-group form-group--action">
+            <label class="form-label">&nbsp;</label>
+            <button id="btn-add" class="btn btn--primary" type="submit">追加</button>
+          </div>
+        </div>
+        <p id="add-error" class="form-error" role="alert" aria-live="polite"></p>
+      </form>
+
+      <div class="divider"></div>
+
+      <p id="empty-msg" class="empty-msg">URLがまだ登録されていません</p>
+      <ul id="entry-list" class="entry-list" role="list"></ul>
+    </section>
+  </div>
+
+  <!-- URL編集モーダル -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <h2 id="modal-title" class="modal-title">URLを編集</h2>
+      <form id="edit-form" class="form" novalidate>
+        <input id="edit-id" type="hidden" />
+        <div class="form-group">
+          <label class="form-label" for="edit-label">表示名</label>
+          <input id="edit-label" class="form-input" type="text" maxlength="60" autocomplete="off" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-url">URL</label>
+          <input id="edit-url" class="form-input" type="text" autocomplete="off" />
+        </div>
+        <p id="edit-error" class="form-error" role="alert" aria-live="polite"></p>
+        <div class="modal-actions">
+          <button type="button" id="btn-cancel-edit" class="btn btn--ghost">キャンセル</button>
+          <button type="submit" class="btn btn--primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>

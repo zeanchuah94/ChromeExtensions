@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "ショートカットナビ",
+  "version": "2.0.0",
+  "description": "名前付きショートカットで保存URLへ瞬時に遷移できる拡張機能",
+  "permissions": ["storage", "tabs"],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "ショートカットナビ",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "src/options/options.html",
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "navigate-preset-1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "ショートカット 1 のURLへ遷移"
+    },
+    "navigate-preset-2": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+2",
+        "mac": "Command+Shift+2"
+      },
+      "description": "ショートカット 2 のURLへ遷移"
+    },
+    "navigate-preset-3": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+3",
+        "mac": "Command+Shift+3"
+      },
+      "description": "ショートカット 3 のURLへ遷移"
+    },
+    "navigate-preset-4": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+4",
+        "mac": "Command+Shift+4"
+      },
+      "description": "ショートカット 4 のURLへ遷移"
+    }
+  }
+}
