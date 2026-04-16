@@ -28,6 +28,30 @@
     </div>
   </div>
 
+  <!-- URL編集モーダル -->
+  <div id="edit-modal-overlay" class="edit-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" hidden>
+    <div class="edit-modal">
+      <h2 id="edit-modal-title" class="edit-modal-title">URLを変更</h2>
+      <form id="edit-modal-form" class="edit-modal-form" novalidate>
+        <input id="edit-modal-command-id" type="hidden" />
+        <input id="edit-modal-entry-id" type="hidden" />
+        <div class="edit-modal-group">
+          <label class="edit-modal-label" for="edit-modal-label-input">表示名</label>
+          <input id="edit-modal-label-input" class="edit-modal-input" type="text" maxlength="60" autocomplete="off" placeholder="例: GitHub" />
+        </div>
+        <div class="edit-modal-group">
+          <label class="edit-modal-label" for="edit-modal-url-input">URL</label>
+          <input id="edit-modal-url-input" class="edit-modal-input" type="text" autocomplete="off" placeholder="例: https://github.com" />
+        </div>
+        <p id="edit-modal-error" class="edit-modal-error" role="alert" aria-live="polite"></p>
+        <div class="edit-modal-actions">
+          <button type="button" id="edit-modal-cancel" class="edit-modal-btn edit-modal-btn--ghost">キャンセル</button>
+          <button type="submit" class="edit-modal-btn edit-modal-btn--primary">保存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="popup.js" type="module"></script>
 </body>
 </html>
